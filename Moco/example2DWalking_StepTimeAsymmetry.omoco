@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OpenSimDocument Version="40500">
+	<MocoStudy name="example2DWalking_StepTimeAsymmetry">
+		<!--The optimal control problem to solve.-->
+		<MocoProblem name="problem">
+			<!--List of 1 or more MocoPhases.-->
+			<MocoPhase name="phases">
+				<!--OpenSim Model to provide dynamics.-->
+				<ModelProcessor name="model">
+					<!--File path to a Model (.osim).-->
+					<filepath>2D_gait.osim</filepath>
+					<!--Operators to apply to the source Model of this processor.-->
+					<operators>
+						<ModOpTendonComplianceDynamicsModeDGF>
+							<!--The tendon compliance dynamics mode: 'implicit' or 'explicit'. Default: 'explicit'.-->
+							<mode>implicit</mode>
+						</ModOpTendonComplianceDynamicsModeDGF>
+					</operators>
+				</ModelProcessor>
+				<!--Bounds on initial value.-->
+				<MocoInitialBounds name="time_initial_bounds">
+					<!--1 value: required value. 2 values: lower, upper bounds on value.-->
+					<bounds>0</bounds>
+				</MocoInitialBounds>
+				<!--Bounds on final value.-->
+				<MocoFinalBounds name="time_final_bounds">
+					<!--1 value: required value. 2 values: lower, upper bounds on value.-->
+					<bounds>0.93999999999999995</bounds>
+				</MocoFinalBounds>
+				<!--The state variables' bounds.-->
+				<state_infos>
+					<MocoVariableInfo name="/jointset/groundPelvis/pelvis_tilt/value">
+						<!--1 value: required value over all time. 2 values: lower, upper bounds on value over all time.-->
+						<bounds>-0.3490658503988659 0.3490658503988659</bounds>
+						<!--1 value: required initial value. 2 values: lower, upper bounds on initial value.-->
+						<initial_bounds></initial_bounds>
+						<!--1 value: required final value. 2 values: lower, upper bounds on final value.-->
+						<final_bounds></final_bounds>
+					</MocoVariableInfo>
+					<MocoVariableInfo name="/jointset/groundPelvis/pelvis_tx/value">
+						<!--1 value: required value over all time. 2 values: lower, upper bounds on value over all time.-->
+						<bounds>0 2</bounds>
+						<!--1 value: required initial value. 2 values: lower, upper bounds on initial value.-->
+						<initial_bounds>0</initial_bounds>
+						<!--1 value: required final value. 2 values: lower, upper bounds on final value.-->
+						<final_bounds></final_bounds>
+					</MocoVariableInfo>
+					<MocoVariableInfo name="/jointset/groundPelvis/pelvis_ty/value">
+						<!--1 value: required value over all time. 2 values: lower, upper bounds on value over all time.-->
+						<bounds>0.75 1.25</bounds>
+						<!--1 value: required initial value. 2 values: lower, upper bounds on initial value.-->
+						<initial_bounds></initial_bounds>
+						<!--1 value: required final value. 2 values: lower, upper bounds on final value.-->
+						<final_bounds></final_bounds>
+					</MocoVariableInfo>
+					<MocoVariableInfo name="/jointset/hip_l/hip_flexion_l/value">
+						<!--1 value: required value over all time. 2 values: lower, upper bounds on value over all time.-->
+						<bounds>-0.17453292519943295 1.0471975511965976</bounds>
+						<!--1 value: required initial value. 2 values: lower, upper bounds on initial value.-->
+						<initial_bounds></initial_bounds>
+						<!--1 value: required final value. 2 values: lower, upper bounds on final value.-->
+						<final_bounds></final_bounds>
+					</MocoVariableInfo>
+					<MocoVariableInfo name="/jointset/hip_r/hip_flexion_r/value">
+						<!--1 value: required value over all time. 2 values: lower, upper bounds on value over all time.-->
+						<bounds>-0.17453292519943295 1.0471975511965976</bounds>
+						<!--1 value: required initial value. 2 values: lower, upper bounds on initial value.-->
+						<initial_bounds></initial_bounds>
+						<!--1 value: required final value. 2 values: lower, upper bounds on final value.-->
+						<final_bounds></final_bounds>
+					</MocoVariableInfo>
+					<MocoVariableInfo name="/jointset/knee_l/knee_angle_l/value">
+						<!--1 value: required value over all time. 2 values: lower, upper bounds on value over all time.-->
+						<bounds>-0.87266462599716477 0</bounds>
+						<!--1 value: required initial value. 2 values: lower, upper bounds on initial value.-->
+						<initial_bounds></initial_bounds>
+						<!--1 value: required final value. 2 values: lower, upper bounds on final value.-->
+						<final_bounds></final_bounds>
+					</MocoVariableInfo>
+					<MocoVariableInfo name="/jointset/knee_r/knee_angle_r/value">
+						<!--1 value: required value over all time. 2 values: lower, upper bounds on value over all time.-->
+						<bounds>-0.87266462599716477 0</bounds>
+						<!--1 value: required initial value. 2 values: lower, upper bounds on initial value.-->
+						<initial_bounds></initial_bounds>
+						<!--1 value: required final value. 2 values: lower, upper bounds on final value.-->
+						<final_bounds></final_bounds>
+					</MocoVariableInfo>
+					<MocoVariableInfo name="/jointset/ankle_l/ankle_angle_l/value">
+						<!--1 value: required value over all time. 2 values: lower, upper bounds on value over all time.-->
+						<bounds>-0.26179938779914941 0.43633231299858238</bounds>
+						<!--1 value: required initial value. 2 values: lower, upper bounds on initial value.-->
+						<initial_bounds></initial_bounds>
+						<!--1 value: required final value. 2 values: lower, upper bounds on final value.-->
+						<final_bounds></final_bounds>
+					</MocoVariableInfo>
+					<MocoVariableInfo name="/jointset/ankle_r/ankle_angle_r/value">
+						<!--1 value: required value over all time. 2 values: lower, upper bounds on value over all time.-->
+						<bounds>-0.26179938779914941 0.43633231299858238</bounds>
+						<!--1 value: required initial value. 2 values: lower, upper bounds on initial value.-->
+						<initial_bounds></initial_bounds>
+						<!--1 value: required final value. 2 values: lower, upper bounds on final value.-->
+						<final_bounds></final_bounds>
+					</MocoVariableInfo>
+					<MocoVariableInfo name="/jointset/lumbar/lumbar/value">
+						<!--1 value: required value over all time. 2 values: lower, upper bounds on value over all time.-->
+						<bounds>0 0.3490658503988659</bounds>
+						<!--1 value: required initial value. 2 values: lower, upper bounds on initial value.-->
+						<initial_bounds></initial_bounds>
+						<!--1 value: required final value. 2 values: lower, upper bounds on final value.-->
+						<final_bounds></final_bounds>
+					</MocoVariableInfo>
+				</state_infos>
+				<!--Integral/endpoint quantities to minimize or constrain.-->
+				<goals>
+					<MocoPeriodicityGoal name="periodicity">
+						<!--Periodic pairs of states.-->
+						<state_pairs>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/hamstrings_r/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/hamstrings_r/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/bifemsh_r/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/bifemsh_r/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/glut_max_r/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/glut_max_r/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/iliopsoas_r/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/iliopsoas_r/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/rect_fem_r/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/rect_fem_r/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/vasti_r/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/vasti_r/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/gastroc_r/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/gastroc_r/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/soleus_r/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/soleus_r/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/tib_ant_r/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/tib_ant_r/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/hamstrings_l/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/hamstrings_l/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/bifemsh_l/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/bifemsh_l/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/glut_max_l/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/glut_max_l/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/iliopsoas_l/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/iliopsoas_l/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/rect_fem_l/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/rect_fem_l/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/vasti_l/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/vasti_l/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/gastroc_l/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/gastroc_l/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/soleus_l/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/soleus_l/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/tib_ant_l/activation</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/tib_ant_l/activation</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/groundPelvis/pelvis_tilt/value</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/groundPelvis/pelvis_tilt/value</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/groundPelvis/pelvis_tilt/speed</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/groundPelvis/pelvis_tilt/speed</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/groundPelvis/pelvis_tx/speed</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/groundPelvis/pelvis_tx/speed</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/groundPelvis/pelvis_ty/value</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/groundPelvis/pelvis_ty/value</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/groundPelvis/pelvis_ty/speed</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/groundPelvis/pelvis_ty/speed</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/hip_l/hip_flexion_l/value</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/hip_l/hip_flexion_l/value</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/hip_l/hip_flexion_l/speed</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/hip_l/hip_flexion_l/speed</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/hip_r/hip_flexion_r/value</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/hip_r/hip_flexion_r/value</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/hip_r/hip_flexion_r/speed</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/hip_r/hip_flexion_r/speed</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/knee_l/knee_angle_l/value</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/knee_l/knee_angle_l/value</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/knee_l/knee_angle_l/speed</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/knee_l/knee_angle_l/speed</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/knee_r/knee_angle_r/value</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/knee_r/knee_angle_r/value</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/knee_r/knee_angle_r/speed</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/knee_r/knee_angle_r/speed</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/ankle_l/ankle_angle_l/value</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/ankle_l/ankle_angle_l/value</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/ankle_l/ankle_angle_l/speed</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/ankle_l/ankle_angle_l/speed</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/ankle_r/ankle_angle_r/value</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/ankle_r/ankle_angle_r/value</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/ankle_r/ankle_angle_r/speed</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/ankle_r/ankle_angle_r/speed</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/lumbar/lumbar/value</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/lumbar/lumbar/value</final_variable>
+							</MocoPeriodicityGoalPair>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/jointset/lumbar/lumbar/speed</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/jointset/lumbar/lumbar/speed</final_variable>
+							</MocoPeriodicityGoalPair>
+						</state_pairs>
+						<!--Periodic pairs of controls.-->
+						<control_pairs>
+							<MocoPeriodicityGoalPair>
+								<!--Initial variable of the pair.-->
+								<initial_variable>/lumbarAct</initial_variable>
+								<!--Final variable of the pair.-->
+								<final_variable>/lumbarAct</final_variable>
+							</MocoPeriodicityGoalPair>
+						</control_pairs>
+					</MocoPeriodicityGoal>
+					<MocoAverageSpeedGoal name="speed">
+						<!--The desired average speed of the system (m/s). Default: 0.-->
+						<desired_average_speed>1</desired_average_speed>
+					</MocoAverageSpeedGoal>
+					<MocoControlGoal name="effort">
+						<!--In cost mode, the goal is multiplied by this weight (default: 1).-->
+						<weight>10</weight>
+						<!--Divide by the model's displacement over the phase (default: false)-->
+						<divide_by_displacement>true</divide_by_displacement>
+						<!--The exponent on controls; greater than or equal to 2 (default: 2).-->
+						<exponent>3</exponent>
+					</MocoControlGoal>
+					<MocoStepTimeAsymmetryGoal name="goal">
+						<!--In cost mode, the goal is multiplied by this weight (default: 1).-->
+						<weight>5</weight>
+						<!--Paths to SmoothSphereHalfSpaceForce objects on the left foot of the model whose forces are summed to determine when the left foot is in contact with the ground.-->
+						<MocoStepTimeAsymmetryGoalGroup name="left_contact_group">
+							<!--Paths to SmoothSphereHalfSpaceForce objects on one foot of the model whose forces are summed to determine when the foot is in contact with the ground.-->
+							<contact_force_paths>contactHeel_l contactFront_l</contact_force_paths>
+							<!--Path to a SmoothSphereHalfSpaceForce whose ContactSphere is used to locate the position of the foot, which is necessary for computing the step time during the double support phase of walking. This path should match one of the paths in 'contact_force_paths'.-->
+							<foot_position_contact_force_path>contactHeel_l</foot_position_contact_force_path>
+						</MocoStepTimeAsymmetryGoalGroup>
+						<!--Paths to SmoothSphereHalfSpaceForce objects on the right foot of the model whose forces are summed to determine when the right foot is in contact with the ground.-->
+						<MocoStepTimeAsymmetryGoalGroup name="right_contact_group">
+							<!--Paths to SmoothSphereHalfSpaceForce objects on one foot of the model whose forces are summed to determine when the foot is in contact with the ground.-->
+							<contact_force_paths>contactHeel_r contactFront_r</contact_force_paths>
+							<!--Path to a SmoothSphereHalfSpaceForce whose ContactSphere is used to locate the position of the foot, which is necessary for computing the step time during the double support phase of walking. This path should match one of the paths in 'contact_force_paths'.-->
+							<foot_position_contact_force_path>contactHeel_r</foot_position_contact_force_path>
+						</MocoStepTimeAsymmetryGoalGroup>
+						<!--The target asymmetry value, between -1.0 and 1.0. Positive asymmetry is associated with the right leg, and negative asymmetry for the left. Default: 0-->
+						<target_asymmetry>0.10000000000000001</target_asymmetry>
+						<!--The contact force threshold that determines when the foot is in contact with the ground (default: 25 [Newtons]).-->
+						<contact_force_threshold>25</contact_force_threshold>
+						<!--The value that determines the smoothing of the foot-contact detection. Default: 0.25.-->
+						<contact_detection_smoothing>0.40000000000000002</contact_detection_smoothing>
+						<!--The value that determines the smoothing of the asymmetry computation (default: 10)-->
+						<asymmetry_smoothing>3</asymmetry_smoothing>
+					</MocoStepTimeAsymmetryGoal>
+				</goals>
+			</MocoPhase>
+		</MocoProblem>
+		<!--The optimal control algorithm for solving the problem.-->
+		<MocoCasADiSolver name="solver">
+			<!--The number of uniformly-sized mesh intervals for the problem (default: 100). If a non-uniform mesh exists, the non-uniform mesh is used instead.-->
+			<num_mesh_intervals>100</num_mesh_intervals>
+			<!--0 for silent. 1 for only Moco's own output. 2 for output from CasADi and the underlying solver (default: 2).-->
+			<verbosity>2</verbosity>
+			<!--Maximum number of iterations in the optimization solver (-1 for solver's default).-->
+			<optim_max_iterations>2000</optim_max_iterations>
+			<!--Tolerance used to determine if the objective is minimized (-1 for solver's default)-->
+			<optim_convergence_tolerance>0.0001</optim_convergence_tolerance>
+			<!--Tolerance used to determine if the constraints are satisfied (-1 for solver's default)-->
+			<optim_constraint_tolerance>0.0001</optim_constraint_tolerance>
+			<!--A MocoTrajectory file storing an initial guess.-->
+			<guess_file>example2DWalking_StepTimeAsymmetry_solution.sto</guess_file>
+		</MocoCasADiSolver>
+	</MocoStudy>
+</OpenSimDocument>
