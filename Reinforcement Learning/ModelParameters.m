@@ -29,8 +29,8 @@ init_height = plane_height/2 + foot_height + shank_height + thigh_height + 0.5*t
 
 %% Contact Parameters
 
-contact_radius = 0.05;
-contact_stiffness = 1e6;
+contact_radius = 0.005;
+contact_stiffness = 1e5;
 contact_damping = 1e3;
 mu_k = 0.7;
 mu_s = 0.9;
@@ -48,12 +48,12 @@ max_torque = 1000;
 %% Standing IC
 
 %Torso velocity
-vx0 = 0;
+vx0 = 1.0;
 vy0 = 0;
 
 %Right angles
-right = [0,... %hip
-         0,... %knee
+right = [90,... %hip
+         -90,... %knee
          0]; %ankle
 %Left angles
 left = [0,... %hip

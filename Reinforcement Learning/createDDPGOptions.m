@@ -19,9 +19,9 @@ trainingOptions.MaxEpisodes = 5000;
 trainingOptions.MaxStepsPerEpisode = Tf/Ts;
 trainingOptions.ScoreAveragingWindowLength = 100;
 trainingOptions.StopTrainingCriteria = 'AverageReward';
-trainingOptions.StopTrainingValue = 10000;
+trainingOptions.StopTrainingValue = 1000000;
 trainingOptions.SaveAgentCriteria = 'EpisodeReward';
-trainingOptions.SaveAgentValue = 5000;
+trainingOptions.SaveAgentValue = 1000000;
 trainingOptions.Plots = 'training-progress';
 trainingOptions.Verbose = true;
 if useParallel

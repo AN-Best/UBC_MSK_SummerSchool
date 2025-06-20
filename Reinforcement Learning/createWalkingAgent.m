@@ -8,7 +8,7 @@ useGPU = true;
 useParallel = true;
 
 % Create the observation info
-numObs = 18;
+numObs = 24;
 observationInfo = rlNumericSpec([numObs 1]);
 observationInfo.Name = 'observations';
 
@@ -37,7 +37,6 @@ curDir = pwd;
 saveDir = 'savedAgents';
 cd(saveDir)
 save(['trainedAgent_2D_' datestr(now,'mm_DD_YYYY_HHMM')],'agent');
-save(['trainingResults_2D_' datestr(now,'mm_DD_YYYY_HHMM')],'trainingResults');
 cd(curDir)
 
 
